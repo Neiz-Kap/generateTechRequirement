@@ -1,0 +1,2 @@
+#Учебный проект generateTechRequirement
+#Учебный проект generateTechRequirement
