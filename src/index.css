@@ -12,10 +12,33 @@ code {
     monospace;
 }
 
+input {
+  max-width: 300px;
+}
+
 .container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
+}
+
+.gridContainer {
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.result-box {
+  background: left 0% repeat rgb(255, 255, 255);
+  box-shadow: rgb(0 0 0 / 20%) 0px 7px 16px 0px;
+  border-radius: 4px;
+  padding: 30px;
+  border-color: rgb(221, 221, 221);
+}
+
+.result-box p {
+  color: #444;
+  margin: 0 !important;
 }

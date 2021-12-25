@@ -1,5 +1,5 @@
 import './App.css';
-import { ContentRouter, Header } from './components/zindex';
+import ContentRouter from './ContentRouter';
 
 function App() {
   return (

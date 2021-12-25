@@ -1,15 +1,11 @@
 import Header from './Header'
-import ContentRouter from '../ContentRouter'
-import MainPage from '../pages/IntroPage'
-import Step1 from './St1PersonalData'
-import Step2 from './Step2'
-import Step3 from './Step3'
+import St1PersonalData from './St1PersonalData'
+import St2 from './St2'
+import St3 from './St3'
+import StnResult from './StnResult'
 
 export { Header }
-export { ContentRouter }
 
-// For ContentRouter
-export { MainPage }
-export { Step1 }
-export { Step2 }
-export { Step3 }
+export { St1PersonalData }
+export { St2 }
+export { St3 }

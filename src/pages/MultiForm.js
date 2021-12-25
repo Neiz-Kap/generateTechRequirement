@@ -1,31 +1,45 @@
-import Button from '@restart/ui/esm/Button';
 import React, { useState, useEffect } from 'react'
-import { Form, Container, Card } from 'react-bootstrap';
+import { Form, Container, Card, Button } from 'react-bootstrap';
 
 import St1PersonalData from '../components/St1PersonalData'
+import St2 from '../components/St2'
+import St3 from '../components/St3'
+import StnResult from '../components/StnResult'
 
 const MultiForm = () => {
   const [step, setStep] = useState(1);
-  const [values, setValues] = useState({
-    first_name: "",
-    last_name: "",
-    gender: "",
+  const [personalData, setPersonalData] = useState({
+    firstName: "",
+    middleName: "",
+    lastName: "",
     email: "",
-    phone_number: "",
-    city: "",
-    state: "",
+    tel: "",
+    // city: "",
+    // state: "",
+  });
+
+  const [projectData, setProjectData] = useState({
+    siteName: "",
+    domainName: "",
+    // city: "",
+    // state: "",
   });
 
 
-  const handleChange = (name) => (e) => {
-    setValues({ ...values, [name]: e.target.value });
+  const onChangePersonalData = (name) => (e) => {
+    setPersonalData({ ...personalData, [name]: e.target.value });
+  };
+
+  const onChangeProjectData = (name) => (e) => {
+    setProjectData({ ...projectData, [name]: e.target.value });
   };
 
   const nextStep = () => {
-    if (step < 3) {
+    if (step < 4) {
       setStep(step => step + 1);
-    } else if (step === 3) {
-      console.log(values);
+    } else if (step === 4) {
+      console.log(personalData);
+      console.log(projectData);
     }
   };
 
@@ -36,21 +50,36 @@ const MultiForm = () => {
   };
 
   return (
-    <Container className="py-3 d-flex justify-content-center align-items-center"
+    <Container className="py-3 d-flex align-items-center justify-content-center"
       style={{ minHeight: '100vh' }}
     >
-      <Card>
-        <div className="d-flex justify-content-around px-5 mt-5">
-          {step > 1 &&
-            <Button variant="warning" onClick={prevStep}>
-              Назад
-            </Button>
-          }
-          <Button variant="warning" onClick={nextStep}>
-            {step === 3 ? "Сгенерировать" : "Далее"}
-          </Button>
-        </div>
-      </Card>
+      {/* <Card> */}
+      {
+        {
+          1: <St1PersonalData onChangePersonalData={onChangePersonalData} {...personalData} />,
+          2: <St2 onChangeProjectData={onChangeProjectData} {...projectData} />,
+          3: <St3 />,
+          4: <StnResult />,
+        }[step]
+      }
+      {/* <div className="justify-content-around px-5 mt-5"> */}
+      {step > 1 &&
+        <Button
+          variant="warning" onClick={prevStep}
+          className={"mx-3"}
+        >
+          Назад
+        </Button>
+      }
+      {step < 4 &&
+        <Button variant="warning" onClick={nextStep}
+          className={"mx-3"}
+        >
+          {step === 3 ? "Сформировать техническое задание" : "Далее"}
+        </Button>
+      }
+      {/* </div> */}
+      {/* </Card> */}
     </Container >
   )
 }
