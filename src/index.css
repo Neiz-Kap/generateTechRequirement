@@ -16,14 +16,30 @@ input {
   max-width: 300px;
 }
 
-.container {
+textarea {
+  max-width: 500px;
+}
+
+img {
+  width: 300px;
+}
+
+.mx-auto {
+  margin: 0 auto;
+  display: block;
+}
+
+.container,
+.intro__container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
 }
 
+.intro__container {
+  justify-content: center;
+  /* align-items: center; */
+}
 .gridContainer {
   max-width: 1232px;
   margin: 0 auto;
@@ -38,7 +54,11 @@ input {
   border-color: rgb(221, 221, 221);
 }
 
-.result-box p {
+.result-box *,
+.result-box p,
+.result-box strong {
   color: #444;
   margin: 0 !important;
+  font-size: 14pt;
+  font-family: Times New Roman, serif;
 }
